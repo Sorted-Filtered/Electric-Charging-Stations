@@ -1,0 +1,60 @@
+﻿Station Name,Street Address,City,State,ZIP,Station Phone,Access Days Time,EV Level1 EVSE Num,EV Level2 EVSE Num,EV DC Fast Count,EV Other Info,Latitude,Longitude,Date Last Confirmed,Owner Type Code,Open Date,EV Connector Types,Facility Type,EV Pricing
+Los Angeles Convention Center,1201 S Figueroa St,Los Angeles,CA,90015,213-741-1151,5:30am-9pm; pay lot,,7,,,34.040539,-118.271387,1/10/2023,P,8/30/1995,J1772,PARKING_GARAGE,Free; parking fee
+Scripps Green Hospital,10666 N Torrey Pines Rd,La Jolla,CA,92037,,24 hours daily,,1,,,32.89947,-117.243,8/15/2024,P,7/30/1997,J1772,HOSPITAL,Free; parking fee
+Galpin Motors,15421 Roscoe Blvd,Sepulveda,CA,91343,800-256-6219,Dealership business hours; customer use only,,2,,,34.221665,-118.468371,8/10/2023,P,12/11/2012,J1772,CAR_DEALER,
+Galleria at Tyler,1299 Galleria at Tyler,Riverside,CA,92503,951-351-3110,6am-12am daily,,4,,,33.909914,-117.459053,9/14/2023,P,8/30/1997,J1772,SHOPPING_MALL,Free
+City of Pasadena - Holly Street Garage,150 E Holly St,Pasadena,CA,91103,626-744-7665,24 hours daily; pay lot,,16,,,34.14762,-118.147111,10/12/2023,LG,8/30/1997,J1772,PARKING_GARAGE,Free
+City of Pasadena - De Lacey Garage,45 De Lacey Ave,Pasadena,CA,91105,626-744-7665,24 hours daily; pay lot,,2,,,34.145138,-118.152655,1/10/2023,LG,8/30/1997,J1772,PARKING_GARAGE,Free; parking fee
+City of Pasadena - Schoolhouse Garage,33 E Green St,Pasadena,CA,91105,626-744-7665,24 hours daily; pay lot,,3,,,34.145119,-118.150133,1/10/2023,LG,8/30/1997,J1772,PARKING_GARAGE,"$1 for the first two hours, $2 each additional hour; parking fee"
+Hyatt Regency Long Beach,200 S Pine Ave,Long Beach,CA,90802,562-491-1234,24 hours daily; pay lot; see valet for access,,1,,,33.7637,-118.192,1/10/2023,P,5/4/2012,J1772,HOTEL,Free
+Los Angeles International Airport (LAX) - Lot 6,1 World Way,Los Angeles,CA,90045,310-646-2911,24 hours daily; pay lot,,20,,,33.94325,-118.403342,8/15/2024,LG,6/30/1998,J1772,AIRPORT,$2 service fee + $0.45 per kWh
+Northridge Fashion Center East Garage Lower Level,9301 Tampa Ave,Northridge,CA,91324,855-900-7584,Mon 6:00am - 11:59pm; Tue 6:00am - 11:59pm; Wed 6:00am - 11:59pm; Thu 6:00am - 11:59pm; Fri 6:00am - 11:59pm; Sat 6:00am - 11:59pm; Sun 6:00am - 11:59pm,,5,,,34.238716,-118.554686,1/23/2025,,5/30/1998,J1772,,
+Ontario Airport Hotel and Conference Center,700 N Haven Ave,Ontario,CA,91764,909-980-0400,24 hours daily; guest use only,,1,,,34.07122,-117.575,5/3/2023,P,6/15/1998,J1772,HOTEL,Free
+Courtyard Marriott - Oxnard Ventura,600 E Esplanade Dr,Oxnard,CA,93030,805-988-3600,24 hours daily; guest use only,,1,,,34.228315,-119.170865,5/3/2023,P,5/30/1998,J1772,HOTEL,Free
+Hilton - Palm Springs,400 E Tahquitz Canyon Way,Palm Springs,CA,92262,760-320-6868,24 hours daily; pay lot; priority given to registered guests,,2,,,33.824004,-116.543589,1/10/2023,P,12/12/2011,J1772,HOTEL,Free
+Inland Empire Foods,5425 Wilson St,Riverside,CA,92509,951-682-8222,8am-4:30pm M-F,,3,,,34.0189,-117.38,5/3/2023,P,5/30/1998,J1772,OFFICE_BLDG,Free
+Sacramento International Airport - Daily A Lot,Lindbergh Dr,Sacramento,CA,95837,916-874-0670,24 hours daily; pay lot,,4,,1 SP Inductive,38.69005,-121.58889,10/12/2023,P,6/30/1998,J1772,AIRPORT,$12 parking fee
+City of Santa Monica - Airport,3223 Donald Douglas Loop,Santa Monica,CA,90405,310-458-8516,24 hours daily,,2,,,34.017081,-118.44704,1/10/2023,LG,6/30/1998,J1772,AIRPORT,Free
+City of Santa Monica - Pier,200 Santa Monica Pier,Santa Monica,CA,90405,310-458-8516,24 hours daily; pay lot,,3,,,34.010021,-118.49583,1/10/2023,LG,4/8/2019,J1772,MUNI_GOV,Free
+Westfield Parking Garage 1st Floor,14006 Riverside Dr,Sherman Oaks,CA,91423,855-900-7584,Mon 6:00am - 11:59pm; Tue 6:00am - 11:59pm; Wed 6:00am - 11:59pm; Thu 6:00am - 11:59pm; Fri 6:00am - 11:59pm; Sat 6:00am - 11:59pm; Sun 6:00am - 11:59pm,,2,,,34.156407,-118.438965,1/23/2025,,5/30/1998,J1772,,
+Universal City Hilton,555 Universal Hollywood Dr,Universal City,CA,91608,818-506-2500,24 hours daily; pay lot; see valet for access; Drivers must bring their own J1772 cordset for Level 1 charging,1,10,,,34.13722,-118.35835,7/11/2024,P,5/30/1998,J1772 NEMA520,HOTEL,Free
+Office Max - Home Depot,7075 Firestone Blvd,Downey,CA,90241,562-806-6600,24 hours daily,,4,,,33.94756,-118.153806,7/11/2024,T,6/15/1998,J1772,SHOPPING_CENTER,Free
+Hyatt at Fisherman's Wharf,555 N Point St,San Francisco,CA,94133,415-563-1234,24 hours daily; pay lot; see valet for access,,1,,,37.80619,-122.4152,5/3/2023,P,7/1/1998,J1772,HOTEL,
+Arden Fair Mall,1689 Arden Way,Sacramento,CA,95815,916-920-1167,24 hours daily,,4,,,38.599693,-121.427045,1/10/2023,P,11/1/2019,J1772,SHOPPING_MALL,Free
+Palace Hotel,2 New Montgomery St,San Francisco,CA,94105,415-512-1111,24 hours daily,,2,,,37.78881,-122.401,5/3/2023,P,1/31/2002,J1772,HOTEL,$7 per session
+Mark Hopkins InterContinental Hotel,999 California St,San Francisco,CA,94108,415-392-3434,24 hours daily; for guest use only; see valet for access,,1,,,37.791791,-122.411265,8/15/2024,P,1/31/2002,J1772,HOTEL,
+California State University - Northridge,18111 Nordhoff St,Northridge,CA,91330,818-677-1200,24 hours daily; parking permit required,,2,,,34.248959,-118.523887,10/12/2023,P,1/15/2002,J1772,COLLEGE_CAMPUS,Free
+California State University - Northridge,18111 Nordhoff St,Northridge,CA,91330,818-677-1200,24 hours daily; parking permit required,,2,,,34.241687,-118.528543,10/12/2023,P,1/15/2002,J1772,COLLEGE_CAMPUS,Free; parking is $8 per day.
+California State University - Northridge,18111 Nordhoff St,Northridge,CA,91330,818-677-1200,24 hours daily; parking permit required,,4,,,34.236853,-118.532588,10/12/2023,P,1/15/2002,J1772,COLLEGE_CAMPUS,Free
+Los Angeles Harbor Department Headquarters,425 S Palos Verdes St,San Pedro,CA,90731,310-732-7678,8am-5pm daily,,4,,,33.740758,-118.28192,7/11/2024,P,3/26/2013,J1772,PARKING_LOT,Free; pay for parking
+Getty Center,1200 Getty Center Dr,Los Angeles,CA,90049,310-440-7300,Garage business hours; pay lot; Drivers must bring their own J1772 cordset for Level 1 charging,12,15,,,34.077588,-118.474585,1/10/2023,P,7/1/2013,J1772 NEMA520,PARKING_GARAGE,Free; parking fee
+LA County DPR Arboretum,301 N Baldwin Ave,Arcadia,CA,91007,833-479-7359,24 hours daily,,3,,,34.145528,-118.050548,1/9/2024,P,6/1/2014,J1772,PARK,$0.45 per kWh from 4pm-9pm; $0.30 per kWh all other times
+City of Glendora - City Hall,114 S Vista Bonita Ave,Glendora,CA,91741,626-914-8200,5am-2am daily,,3,,,34.13556,-117.864,5/3/2023,LG,4/30/2002,J1772,MUNI_GOV,Free
+DoubleTree Hotel - Los Angeles - Westside,6161 Centinela Ave,Culver City,CA,90230,310-649-1776,24 hours daily; guest use only; see valet,,2,,,33.9826,-118.3966,6/12/2023,P,12/31/2019,J1772,HOTEL,
+Helms Bakery Building,8800 Venice Blvd,Los Angeles,CA,90034,310-204-1865,24 hours daily,,6,,,34.029971,-118.385231,6/12/2023,P,4/25/2017,J1772,PARKING_GARAGE,"$1.35 per hour for first two hours, $3 per hour thereafter"
+Westfield MainPlace Mall,2800 N Main St,Santa Ana,CA,92705,714-547-7800,Business hours,,8,,,33.777054,-117.870566,7/11/2024,P,5/30/2002,J1772,SHOPPING_MALL,Free
+California State University - Channel Islands,1 University Dr,Camarillo,CA,93012,805-437-8400,24 hours daily; parking pass required or day pass available for purchase,,5,,,34.16657601660278,-119.0458547,5/9/2024,P,5/30/2002,J1772,COLLEGE_CAMPUS,Free; $6 for parking day pass for non-permit holders
+Brea Downtown Parking,101 S Brea Blvd,Brea,CA,92821,714-990-7650,Garage business hours; 4 hour parking limit,,4,,,33.919899,-117.898618,7/11/2023,LG,5/30/2002,J1772,PARKING_GARAGE,
+Home Depot,2745 Teller Rd,Newbury Park,CA,91320,805-375-6680,24 hours daily; Drivers must bring their own J1772 cordset for Level 1 charging,4,2,,,34.192178,-118.934793,8/10/2023,P,5/15/2002,J1772 NEMA515,SHOPPING_CENTER,Free
+Lake Casitas Municipal Water District - Recreational Area,Casitas Pass Rd & Baldwin Rd,Oak View,CA,93022,805-649-2233,8am-5pm daily,,1,,,34.418322,-119.3368,7/11/2024,P,5/30/2002,J1772,PARK,$20 parking fee
+San Dimas Park & Ride,205 S San Dimas Ave,San Dimas,CA,91773,909-394-6271,24 hours daily,,2,,,34.105275,-117.809208,8/10/2023,P,5/30/2002,J1772,PARKING_LOT,Free
+City of Pasadena - El Molino Lot,100 N El Molino Ave,Pasadena,CA,91101,626-744-7665,24 hours daily; pay lot,,4,,,34.147709,-118.136621,1/10/2023,LG,5/30/2002,J1772,PARKING_LOT,Free; parking fee
+Ventura County Government Center,800 S Victoria Ave,Ventura,CA,93009,,8am-5pm daily,,3,,,34.267352,-119.2124,10/12/2023,LG,10/19/2012,J1772,MUNI_GOV,
+Ventura County Air Pollution Control District,669 County Square Dr,Ventura,CA,93003,805-645-1400,8am-5pm daily,,3,,,34.268756,-119.2154,5/9/2024,LG,10/18/2012,J1772,MUNI_GOV,Free
+Pacific View Mall,3295 E Main St,Ventura,CA,93003,805-642-5530,24 hours daily,,2,,,34.268,-119.2492,7/11/2023,P,5/30/2002,J1772,SHOPPING_MALL,Free
+University of California - Davis Extension - Lot 80,1441 Research Park Dr,Davis,CA,95616,530-752-8277,24 hours daily; parking pass required; Drivers must bring their own J1772 cordset for Level 1 charging,1,3,,,38.539336,-121.732405,1/10/2023,SG,6/1/2004,J1772 NEMA520,COLLEGE_CAMPUS,Parking fee
+Fair Oaks - Orangevale - Community Library,11601 Fair Oaks Blvd,Fair Oaks,CA,95628,916-264-2700,24 hours daily,,2,,,38.66292,-121.2634,8/15/2024,LG,6/1/2004,J1772,PARKING_LOT,Free
+Sutter Galleria Mall - University of California - Davis Extension,2901 K St,Sacramento,CA,95816,916-327-7072,24 hours daily; pay lot; visitor and student use only; Drivers must bring their own J1772 cordset for Level 1 charging,1,2,,,38.57277,-121.467902,10/12/2023,P,5/30/2004,J1772 NEMA520,COLLEGE_CAMPUS,Free
+North Highlands Library,4235 Antelope Rd,Antelope,CA,95843,916-264-2920,24 hours daily,,1,,,38.7042,-121.365,1/10/2023,LG,8/1/2019,J1772,LIBRARY,Free
+University of California - Davis - Medical Center,4860 Y St,Sacramento,CA,95817,800-282-3284,24 hours daily,,2,,,38.552483,-121.4487,10/12/2023,P,11/1/2019,J1772,HOSPITAL,
+City of Sacramento - Belle Cooledge Library,5600 S Land Park Dr,Sacramento,CA,95822,916-264-2700,24 hours daily,,2,,,38.524403,-121.5112,12/10/2024,LG,2/11/2013,J1772,LIBRARY,Free
+Mosquito Road Park and Ride,Mosquito Rd & Clay St,Placerville,CA,95667,530-642-5383,Lot business hours; overnight parking prohibited,,2,,,38.73323,-120.78962,5/3/2023,LG,5/30/2004,J1772,MUNI_GOV,Free
+City of Vacaville - Cultural Center,1000 Ulatis Dr,Vacaville,CA,95687,707-449-5424,24 hours daily,,1,,,38.356027,-121.9628,7/11/2024,LG,6/15/2004,J1772,MUNI_GOV,Free
+Stars Recreation Center,155 Browns Valley Pkwy,Vacaville,CA,95688,707-449-5424,24 hours daily,,4,,,38.36557,-121.967,7/11/2024,LG,6/15/2004,J1772,REC_SPORTS_FACILITY,Free
+City of Vacaville - Regional Transport Center,190 Hickory Ln,Vacaville,CA,95688,707-449-5424,24 hours daily,,2,,,38.35172,-121.987,7/11/2024,LG,6/15/2004,J1772,TRAVEL_CENTER,Free
+Office of Housing & Redevelopment,40 Eldridge Ave,Vacaville,CA,95688,707-449-5424,24 hours daily,,2,,,38.356907,-122.001886,7/11/2024,LG,6/15/2004,J1772,OFFICE_BLDG,Free
+KUIC Radio - Parking Lot,500 Catherine St,Vacaville,CA,95688,707-449-5424,24 hours daily,,1,,1 SP Inductive,38.355867,-121.9862,7/11/2024,LG,6/15/2004,J1772,PARKING_LOT,Free
+City of Vacaville - City Hall,650 Merchant St,Vacaville,CA,95688,,24 hours daily; Primarily government use,,7,,2 SP Inductive,38.351758,-121.994475,8/15/2024,LG,6/15/2004,J1772,MUNI_GOV,Free
+Citrus Heights City Hall,6360 Fountain Square Dr,Citrus Heights,CA,95621,916-725-2448,24 hours daily,,4,,1 SP Inductive,38.682605,-121.297614,1/13/2025,LG,2/1/2016,J1772,MUNI_GOV,Free
+El Dorado County Government Center,2850 Fairlane Ct,Placerville,CA,95667,530-621-5300,24 hours daily,,3,,,38.72799,-120.828,1/9/2024,LG,5/15/2004,J1772,MUNI_GOV,Free
+El Dorado Transit Park & Ride,4640 Post St,El Dorado Hills,CA,95762,530-642-5383,24 hours daily,,2,,,38.6476,-121.067,1/9/2024,LG,5/1/2012,J1772,MUNI_GOV,Free
