@@ -13,9 +13,7 @@ let mapBounds = [];
 
 function createMap(state) {
   mapBounds = [];
-  for(var i = 0; i < mapMarkers.length; i++){
-    myMap.removeLayer(mapMarkers);
-  }
+  mapMarkers.clearLayers();
 
   // Fetch the api endpoint data
   let url = `http://127.0.0.1:5000/stations/${state}`;
