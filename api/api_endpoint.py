@@ -46,5 +46,35 @@ def stations(state):
     return jsonify(output)
 
 
+@app.route("/top_10_states")
+def top_10_states():
+    """Get the top 10 states with the most stations."""
+    # Aggregation pipeline to count the number of stations per state
+    pipeline = [
+        {
+            "$group": {
+                "_id": "$State",        # Group by the 'State' field
+                "station_count": {"$sum": 1}  # Count the number of stations in each state
+            }
+        },
+        {
+            "$sort": {"station_count": -1}  # Sort by station count in descending order
+        },
+        {
+            "$limit": 10  # Limit to the top 10 states
+        }
+    ]
+    
+    # Execute the aggregation query
+    top_10_states = collection.aggregate(pipeline)
+    
+    output = []
+    for state in top_10_states:
+        state['_id'] = str(state['_id'])  # Convert ObjectId to string if necessary
+        output.append(state)
+    
+    return jsonify(output)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
