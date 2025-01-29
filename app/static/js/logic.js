@@ -8,13 +8,13 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(myMap);
 
-let mapMarkers = [];
+let mapMarkers = L.markerClusterGroup();
 let mapBounds = [];
 
 function createMap(state) {
   mapBounds = [];
   for(var i = 0; i < mapMarkers.length; i++){
-    myMap.removeLayer(mapMarkers[i]);
+    myMap.removeLayer(mapMarkers);
   }
 
   // Fetch the api endpoint data
@@ -30,14 +30,14 @@ function createMap(state) {
     for (let i = 0; i < marker_limit; i++) {
 
       let feature = response[i];
-      let marker = L.marker([feature.Latitude, feature.Longitude]);
-      marker.addTo(myMap);
-      mapMarkers.push(marker);
+      let marker = L.marker([feature.Latitude, feature.Longitude])
+      .bindPopup("<h3>Location:<br><h4>" + feature["Station Name"] + "<br><h3>Charger Types:<br><h4>" + feature["EV Connector Types"]);
+      marker.addTo(mapMarkers);
       mapBounds.push([feature.Latitude, feature.Longitude]);
     }
 
     myMap.fitBounds(mapBounds);
-
+    mapMarkers.addTo(myMap);
   });
 }
 
