@@ -1,0 +1,53 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#map,
+body,
+html {
+  height: 100%;
+}
+
+#legend {
+  padding: 10px;
+  font-family: Sanchez, serif;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 18px;
+  color: #555;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  z-index: 1000;
+}
+
+.clr {
+  width: 15px;
+  height: 15px;
+  background: #f00;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.clr1 {
+  background: #a3f600;
+}
+.clr2 {
+  background: #dcf400;
+}
+.clr3 {
+  background: #f7db11;
+}
+.clr4 {
+  background: #fdb72a;
+}
+.clr5 {
+  background: #fca35d;
+}
+.clr6 {
+  background: #ff5f65;
+}
