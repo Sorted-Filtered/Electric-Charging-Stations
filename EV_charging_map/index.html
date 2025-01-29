@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Charging Station Heatmap</title>
+
+    <!-- Leaflet.js -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <!-- Leaflet Heatmap Plugin -->
+    <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+
+    <!-- PapaParse for CSV Parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+
+    <!-- Custom CSS (Updated Path) -->
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+
+    <!-- Dropdown for State Selection -->
+    <div id="controls">
+        <label for="stateSelect">Filter by State:</label>
+        <select id="stateSelect">
+            <option value="">All States</option>
+        </select>
+    </div>
+
+    <!-- Map Container -->
+    <div id="map"></div>
+
+    <!-- Custom JavaScript (Updated Path) -->
+    <script src="static/script.js"></script>
+
+</body>
+</html>
