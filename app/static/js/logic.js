@@ -9,8 +9,10 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(myMap);
 
 let mapMarkers = [];
+let mapBounds = [];
 
 function createMap(state) {
+  mapBounds = [];
   for(var i = 0; i < mapMarkers.length; i++){
     myMap.removeLayer(mapMarkers[i]);
   }
@@ -31,7 +33,10 @@ function createMap(state) {
       let marker = L.marker([feature.Latitude, feature.Longitude]);
       marker.addTo(myMap);
       mapMarkers.push(marker);
+      mapBounds.push([feature.Latitude, feature.Longitude]);
     }
+
+    myMap.fitBounds(mapBounds);
 
   });
 }
