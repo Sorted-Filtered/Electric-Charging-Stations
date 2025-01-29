@@ -1,0 +1,38 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#map,
+body,
+html {
+  height: 100%;
+}
+
+#legend {
+  padding: 10px;
+  font-family: Sanchez, serif;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 18px;
+  color: #555;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  z-index: 1000;
+}
+
+#selectBox {
+  position: fixed;
+  top: 10px;
+  left: 100px;
+  right: 100px;
+  z-index: 1000;
+  background: #fff;
+  padding: 10px;
+  box-shadow: 0 0 10px;
+  border-radius: 5px;
+}
