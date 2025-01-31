@@ -14,13 +14,13 @@ let mapBounds = [];
 // Establish layers.
 let layers = {
   mapMarkers: new L.markerClusterGroup(),
-  heatLayer: new L.LayerGroup()
-}
+  heatLayer: new L.LayerGroup(),
+};
 // Adding overlay layers
 let overlays = {
   "Station Markers": layers.mapMarkers,
-  "Station Heatmap": layers.heatLayer
-}
+  "Station Heatmap": layers.heatLayer,
+};
 
 // Adding control to map
 L.control.layers(null, overlays).addTo(myMap);
@@ -35,27 +35,20 @@ function createMap(state) {
 
   d3.json(url).then(function (response) {
     console.log(response);
-    fetchEVChargingData(response);
     let marker_limit = response.length;
     let heatArray = [];
-  
+
     // Loop through the features
     for (let i = 0; i < marker_limit; i++) {
       let feature = response[i];
-<<<<<<< HEAD
+      heatArray.push([feature.Latitude, feature.Longitude]);
       let marker = L.marker([feature.Latitude, feature.Longitude]).bindPopup(
         "<h3>Location:<br><h4>" +
           feature["Station Name"] +
           "<br><h3>Charger Types:<br><h4>" +
           feature["EV Connector Types"]
       );
-      marker.addTo(mapMarkers);
-=======
-      heatArray.push([feature.Latitude, feature.Longitude])
-      let marker = L.marker([feature.Latitude, feature.Longitude])
-      .bindPopup("<h3>Location:<br><h4>" + feature["Station Name"] + "<br><h3>Charger Types:<br><h4>" + feature["EV Connector Types"]);
       marker.addTo(layers.mapMarkers);
->>>>>>> 4577113c548049a4e807bde2f0a539733ee7e1fb
       mapBounds.push([feature.Latitude, feature.Longitude]);
     }
 
@@ -68,7 +61,7 @@ function createMap(state) {
     L.heatLayer(heatArray, {
       radius: 15,
       blur: 25,
-      maxZoom: 10
+      maxZoom: 10,
     }).addTo(layers.heatLayer);
 
     // Plot the data
@@ -77,12 +70,11 @@ function createMap(state) {
 }
 
 function plotData(response) {
-
-  let sortedData = response.sort((a, b) => b['Open Date'] - a['Open Date']);
+  let sortedData = response.sort((a, b) => b["Open Date"] - a["Open Date"]);
 
   dates = [];
   sums = [];
-  activeDate = 'none';
+  activeDate = "none";
   activeSum = 0;
 
   let featureLength = sortedData.length;
@@ -91,16 +83,16 @@ function plotData(response) {
   for (let i = 0; i < featureLength; i++) {
     let feature = sortedData[i];
 
-    if (i == (featureLength - 1)) {
+    if (i == featureLength - 1) {
       dates.push(activeDate);
       sums.push(activeSum);
     } else if (i == 0) {
-      activeDate = feature['Open Date'];
+      activeDate = feature["Open Date"];
       activeSum = 1;
-    } else if (feature['Open Date'] != activeDate) {
+    } else if (feature["Open Date"] != activeDate) {
       dates.push(activeDate);
       sums.push(activeSum);
-      activeDate = feature['Open Date'];
+      activeDate = feature["Open Date"];
       activeSum = 1;
     } else {
       activeSum = activeSum + 1;
@@ -111,7 +103,7 @@ function plotData(response) {
   let trace1 = {
     x: dates,
     y: sums,
-    type: "bar"
+    type: "bar",
   };
 
   // Data array
@@ -119,7 +111,7 @@ function plotData(response) {
 
   // Apply a title to the layout
   let layout = {
-    title: "Electric Charger Openings by Date"
+    title: "Electric Charger Openings by Date",
   };
 
   // Render the plot to the div tag with id "plot"
@@ -141,4 +133,3 @@ function updateMap() {
 
 // Call updateMap() when a change takes place to the DOM
 d3.selectAll("#stateSelect").on("change", updateMap);
-
