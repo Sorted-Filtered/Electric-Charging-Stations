@@ -3,10 +3,14 @@ body {
   margin: 0;
 }
 
-#map,
 body,
 html {
   height: 100%;
+}
+
+#map {
+  display: block;
+  height: 500px;
 }
 
 #legend {
@@ -26,13 +30,6 @@ html {
 }
 
 #selectBox {
-  position: fixed;
-  top: 10px;
-  left: 100px;
-  right: 100px;
-  z-index: 1000;
   background: #fff;
   padding: 10px;
-  box-shadow: 0 0 10px;
-  border-radius: 5px;
 }

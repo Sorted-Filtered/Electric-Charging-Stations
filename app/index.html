@@ -21,6 +21,7 @@
 <body>
 
   <div id="selectBox">
+    <h1>Electric Car Charger Locations:</h1>
     <select id="stateSelect">
       <option value="AL">Alabama</option>
       <option value="AK">Alaska</option>
@@ -79,6 +80,9 @@
   <!-- The div that holds our map -->
   <div id="map"></div>
 
+  <!-- The div that holds our plot -->
+  <div id="plot"></div>
+
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
@@ -87,6 +91,8 @@
   <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
   <!-- D3 JavaScript -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
+  <!-- Plotly JavaScript -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <!-- Our JavaScript -->
   <script type="text/javascript" src="static/js/logic.js"></script>
 </body>

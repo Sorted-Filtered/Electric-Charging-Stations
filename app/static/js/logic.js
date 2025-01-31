@@ -36,7 +36,59 @@ function createMap(state) {
 
     myMap.fitBounds(mapBounds);
     mapMarkers.addTo(myMap);
+
+    plotData(response);
   });
+}
+
+function plotData(response) {
+
+  let sortedData = response.sort((a, b) => b['Open Date'] - a['Open Date']);
+
+  dates = [];
+  sums = [];
+  activeDate = 'none';
+  activeSum = 0;
+
+  let featureLength = sortedData.length;
+
+  // Loop through the features
+  for (let i = 0; i < featureLength; i++) {
+    let feature = sortedData[i];
+
+    if (i == (featureLength - 1)) {
+      dates.push(activeDate);
+      sums.push(activeSum);
+    } else if (i == 0) {
+      activeDate = feature['Open Date'];
+      activeSum = 1;
+    } else if (feature['Open Date'] != activeDate) {
+      dates.push(activeDate);
+      sums.push(activeSum);
+      activeDate = feature['Open Date'];
+      activeSum = 1;
+    } else {
+      activeSum = activeSum + 1;
+    }
+  }
+
+  // Trace1
+  let trace1 = {
+    x: dates,
+    y: sums,
+    type: "bar"
+  };
+
+  // Data array
+  let data = [trace1];
+
+  // Apply a title to the layout
+  let layout = {
+    title: "Electric Charger Openings by Date"
+  };
+
+  // Render the plot to the div tag with id "plot"
+  Plotly.newPlot("plot", data, layout);
 }
 
 // Preload the map data with MN data
