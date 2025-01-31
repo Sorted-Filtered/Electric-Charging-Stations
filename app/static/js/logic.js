@@ -119,6 +119,7 @@ function plotData(response) {
   Plotly.newPlot("plot", data, layout);
 }
 
+
 // Fill summary element with metadata
 function updateSummary(response) {
     console.log("Starting function", response);
