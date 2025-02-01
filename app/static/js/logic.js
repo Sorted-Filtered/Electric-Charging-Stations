@@ -47,7 +47,10 @@ function createMap(state) {
       let feature = response[i];
       heatArray.push([feature.Latitude, feature.Longitude])
       let marker = L.marker([feature.Latitude, feature.Longitude])
-      .bindPopup("<h3>Location:<br><h4>" + feature["Station Name"] + "<br><h3>Charger Types:<br><h4>" + feature["EV Connector Types"]);
+      .bindPopup(`<h5>Location: ${feature["Station Name"]} <br>Address: ${feature["Street Address"]} <br>Charger Types: ${feature["EV Connector Types"]} 
+        <br>DC Chargers: ${feature["EV DC Fast Count"]} <br>Level 2 Chargers: ${feature["EV Level2 EVSE Num"]}
+        <br>Level 1 Chargers: ${feature["EV Level1 EVSE Num"]}`
+      );
       marker.addTo(layers.mapMarkers);
       mapBounds.push([feature.Latitude, feature.Longitude]);
     }
@@ -120,18 +123,20 @@ function plotData(response) {
 }
 
 
-// Fill summary element with metadata
+// Fill summary element with analysis
 function updateSummary(response) {
-    console.log("Starting function", response);
     let connectorSummary = {
       teslaCon: 0,
       j1772Con: 0,
       chademoCon: 0,
-      j1772comboCon: 0
+      j1772comboCon: 0,
+      totalStations: 0
       }
+
+    // Loop though state data to populate summary element
     for (let i = 0; i < response.length; i++) {
       let connectors = response[i]["EV Connector Types"];
-      console.log(connectors);
+      connectorSummary.totalStations += 1
       if (connectors) {
         if (connectors.includes("TESLA")) {
           connectorSummary.teslaCon += 1
@@ -145,10 +150,12 @@ function updateSummary(response) {
         if (connectors.includes("J1772COMBO")) {
           connectorSummary.j1772comboCon += 1
         }
+      }
       else {
-        console.log(connectorSummary)
-      }}
+        console.log("No common connectors available at " + response[i]["Station Name"] + "  " + response[i]["EV Connector Types"])
+      }
     }
+    d3.select("#total-station").text("Total Number of Stations: " + connectorSummary.totalStations);
     d3.select("#total-tesla").text("Total Tesla: " + connectorSummary.teslaCon);
     d3.select("#total-J1772").text("Total J1772: " + connectorSummary.j1772Con);
     d3.select("#total-CHADEMO").text("Total CHADEMO: " + connectorSummary.chademoCon);
