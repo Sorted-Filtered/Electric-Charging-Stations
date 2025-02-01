@@ -36,6 +36,7 @@ function createMap(state) {
 
     console.log(response);
 
+    // Call updateSummary to generate state statistics
     updateSummary(response);
 
     let marker_limit = response.length;
@@ -45,9 +46,13 @@ function createMap(state) {
     for (let i = 0; i < marker_limit; i++) {
 
       let feature = response[i];
+
+      // Add Lat/Long to heat array
       heatArray.push([feature.Latitude, feature.Longitude])
+
+      // Generate markers, add them to marker layer, and change map bounds
       let marker = L.marker([feature.Latitude, feature.Longitude])
-      .bindPopup(`<h5>Location: ${feature["Station Name"]} <br>Address: ${feature["Street Address"]} <br>Charger Types: ${feature["EV Connector Types"]} 
+      .bindPopup(`<h5>Location: ${feature["Station Name"]} <br>Address: ${feature["Street Address"]} <br>Open Times: ${feature["Access Days Time"]} <br>Charger Types: ${feature["EV Connector Types"]} 
         <br>DC Chargers: ${feature["EV DC Fast Count"]} <br>Level 2 Chargers: ${feature["EV Level2 EVSE Num"]}
         <br>Level 1 Chargers: ${feature["EV Level1 EVSE Num"]}`
       );
@@ -130,12 +135,21 @@ function updateSummary(response) {
       j1772Con: 0,
       chademoCon: 0,
       j1772comboCon: 0,
-      totalStations: 0
+      totalStations: 0,
+      total2025: 0,
+      total2020: 0,
+      total2015: 0,
+      total2010: 0,
+      totalBefore2010: 0
       }
 
     // Loop though state data to populate summary element
     for (let i = 0; i < response.length; i++) {
       let connectors = response[i]["EV Connector Types"];
+      let openDate = new Date(response[i]["Open Date"]);
+      let openYear = openDate.getFullYear();
+
+      // Add to total stations and connector types by connector
       connectorSummary.totalStations += 1
       if (connectors) {
         if (connectors.includes("TESLA")) {
@@ -150,12 +164,39 @@ function updateSummary(response) {
         if (connectors.includes("J1772COMBO")) {
           connectorSummary.j1772comboCon += 1
         }
-      }
-      else {
+      } else {
         console.log("No common connectors available at " + response[i]["Station Name"] + "  " + response[i]["EV Connector Types"])
       }
+
+      // Add to stations built by year
+      if (openDate) {
+        if (openYear <= 2009) {
+          connectorSummary.totalBefore2010 += 1
+        }
+        if (openYear <= 2014 && openYear >= 2010) {
+          connectorSummary.total2010 += 1
+        }
+        if (openYear <= 2019 && openYear >= 2015) {
+          connectorSummary.total2015 += 1
+        }
+        if (openYear <= 2024 && openYear >= 2020) {
+          connectorSummary.total2020 += 1
+        }
+        if (openYear === 2025) {
+          connectorSummary.total2025 += 1
+        }
+      } else {
+        console.log("Station not opened before 2026! " + openDate)
+      }
     }
+
+    // Add totals to html element
     d3.select("#total-station").text("Total Number of Stations: " + connectorSummary.totalStations);
+    d3.select("#total-2025").text("Total Built This Year(2025): " + connectorSummary.total2025);
+    d3.select("#total-2020").text("Total Built in 2020-2024: " + connectorSummary.total2020);
+    d3.select("#total-2015").text("Total Built in 2015-2020: " + connectorSummary.total2015);
+    d3.select("#total-2010").text("Total Built in 2010-2015: " + connectorSummary.total2010);
+    d3.select("#total-before-2010").text("Total Built Before 2010: " + connectorSummary.totalBefore2010);
     d3.select("#total-tesla").text("Total Tesla: " + connectorSummary.teslaCon);
     d3.select("#total-J1772").text("Total J1772: " + connectorSummary.j1772Con);
     d3.select("#total-CHADEMO").text("Total CHADEMO: " + connectorSummary.chademoCon);
@@ -163,6 +204,7 @@ function updateSummary(response) {
     pieChartSummary(connectorSummary)
 }
 
+// Function to create pie chart based on connector type totals
 function pieChartSummary(connectorSummary) {
   console.log(connectorSummary);
 }
