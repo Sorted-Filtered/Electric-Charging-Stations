@@ -81,11 +81,29 @@
   <!-- The div that holds our map -->
   <div id="map"></div>
 
-  <!-- Charger Details -->
-  <div id="details"></div>
-
   <!-- The div that holds our plot -->
   <div id="plot"></div>
+
+
+  <!-- The state summaries go here -->
+  <div class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title">State Summary</h3>
+    </div>
+    <div id="card-main">
+      <div id="total-station">Total Number of Stations: </div>
+      <div id="total-2025">Stations Built This Year(2025): </div>
+      <div id="total-2020">Stations Built in 2020-2024: </div>
+      <div id="total-2015">Stations Built in 2015-2020: </div>
+      <div id="total-2010">Stations Built in 2010-2015: </div>
+      <div id="total-before-2010">Stations Built Before 2010: </div>
+      <div><h3>Connector Types:</h3></div>
+      <div id="total-J1772">Total J1772: </div>
+      <div id="total-CHADEMO">Total CHADEMO: </div>
+      <div id="total-J1772COMBO">Total J1772COMBO: </div>
+      <div id="total-tesla">Total Tesla: </div>
+    </div>
+  </div>
 
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
