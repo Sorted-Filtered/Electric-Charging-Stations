@@ -32,10 +32,12 @@ function createMap(state) {
   // Fetch the api endpoint data
   let url = `http://127.0.0.1:5000/stations/${state}`;
 
+  // Call the API, <response> is the api json data
   d3.json(url).then(function(response) {
 
     console.log(response);
 
+    // Create the markers for each station
     let marker_limit = response.length;
     let heatArray = [];
   
@@ -67,7 +69,10 @@ function createMap(state) {
   });
 }
 
+// Create the plots
 function plotData(response) {
+
+  d3.select("#details").text(`${response.length} Total Chargers`);
 
   let sortedData = response.sort((a, b) => b['Open Date'] - a['Open Date']);
 
@@ -133,3 +138,4 @@ function updateMap() {
 
 // Call updateMap() when a change takes place to the DOM
 d3.selectAll("#stateSelect").on("change", updateMap);
+
