@@ -194,16 +194,16 @@ function updateSummary(response) {
     }
 
     // Add totals to html element
-    d3.select("#total-station").text("Total Number of Stations: " + connectorSummary.totalStations);
-    d3.select("#total-2025").text("Total Built This Year(2025): " + connectorSummary.total2025);
-    d3.select("#total-2020").text("Total Built in 2020-2024: " + connectorSummary.total2020);
-    d3.select("#total-2015").text("Total Built in 2015-2020: " + connectorSummary.total2015);
-    d3.select("#total-2010").text("Total Built in 2010-2015: " + connectorSummary.total2010);
-    d3.select("#total-before-2010").text("Total Built Before 2010: " + connectorSummary.totalBefore2010);
-    d3.select("#total-tesla").text("Total Tesla: " + connectorSummary.teslaCon);
-    d3.select("#total-J1772").text("Total J1772: " + connectorSummary.j1772Con);
-    d3.select("#total-CHADEMO").text("Total CHADEMO: " + connectorSummary.chademoCon);
-    d3.select("#total-J1772COMBO").text("Total J1772COMBO: " + connectorSummary.j1772comboCon);
+    d3.select("#total-station").text(connectorSummary.totalStations);
+    d3.select("#total-2025").text(connectorSummary.total2025);
+    d3.select("#total-2020").text(connectorSummary.total2020);
+    d3.select("#total-2015").text(connectorSummary.total2015);
+    d3.select("#total-2010").text(connectorSummary.total2010);
+    d3.select("#total-before-2010").text(connectorSummary.totalBefore2010);
+    d3.select("#total-tesla").text(connectorSummary.teslaCon);
+    d3.select("#total-J1772").text(connectorSummary.j1772Con);
+    d3.select("#total-CHADEMO").text(connectorSummary.chademoCon);
+    d3.select("#total-J1772COMBO").text(connectorSummary.j1772comboCon);
     pieChartSummary(connectorSummary)
 }
 
