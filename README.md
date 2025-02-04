@@ -24,15 +24,15 @@ Before running the app, ensure you have the following installed:
 1. Once installed, run the file in the data_collection folder named "pymongo_import.ipynb". This will populate the needed data from the "raw_data.csv" file into our MongoDB database called "electric_charging", with a collection named "stations".
 2. Run the API script (api_endpoint.py) found in the folder named "api" through a terminal. Once running, you will see that flask is running on http://127.0.0.1:5000. Available API endpoints include:
 
-       -/ : Lists available API routes.
+       / : Lists available API routes.
 
-       -/stations/<state> : Fetches all stations for a specific U.S. state. Replace <state> with state abbreviation (MN for Minnesota)
+       /stations/<state> : Fetches all stations for a specific U.S. state. Replace <state> with state abbreviation (MN for Minnesota)
 
 4. Run the app using a local web server, or open the HTML directly.
 
-       - Using python HTTP server: run "python -m http.server" in terminal in application's directory, this will generate the webpage on http://localhost:8000.
+        Using python HTTP server: run "python -m http.server" in terminal in application's directory, this will generate the webpage on http://localhost:8000.
    
-       - Opening file directly: Open HTML file in web browser, ensure that the API is running correctly to populate data onto the maps/plots/summary. Depending on security settings, some features might not work properly without a web server.
+        Opening file directly: Open HTML file in web browser, ensure that the API is running correctly to populate data onto the maps/plots/summary. Depending on security settings, some features might not work properly without a web server.
 
 ## Features
 Map Visualization:
