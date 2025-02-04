@@ -31,3 +31,10 @@
   padding: 0 10px;
   padding-right: 0px;
 }
+
+.plotholder {
+  display: flex;
+}
+.plotholder > div {
+  width: 50%;
+}

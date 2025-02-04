@@ -133,18 +133,20 @@ function plotData(response) {
 
 // Fill summary element with analysis
 function updateSummary(response) {
-    let connectorSummary = {
-      teslaCon: 0,
-      j1772Con: 0,
-      chademoCon: 0,
-      j1772comboCon: 0,
+    let stationSummary = {
       totalStations: 0,
       total2025: 0,
       total2020: 0,
       total2015: 0,
       total2010: 0,
       totalBefore2010: 0
-      }
+    }
+    let connectorSummary = {
+      teslaCon: 0,
+      j1772Con: 0,
+      chademoCon: 0,
+      j1772comboCon: 0,
+    }
 
     // Loop though state data to populate summary element
     for (let i = 0; i < response.length; i++) {
@@ -153,19 +155,20 @@ function updateSummary(response) {
       let openYear = openDate.getFullYear();
 
       // Add to total stations and connector types by connector
-      connectorSummary.totalStations += 1
+      stationSummary.totalStations += 1;
+
       if (connectors) {
         if (connectors.includes("TESLA")) {
-          connectorSummary.teslaCon += 1
+          connectorSummary.teslaCon += 1;
         }
         if (connectors.includes("J1772")) {
-          connectorSummary.j1772Con += 1
+          connectorSummary.j1772Con += 1;
         }
         if (connectors.includes("CHADEMO")) {
-          connectorSummary.chademoCon += 1
+          connectorSummary.chademoCon += 1;
         }
         if (connectors.includes("J1772COMBO")) {
-          connectorSummary.j1772comboCon += 1
+          connectorSummary.j1772comboCon += 1;
         }
       } else {
         console.log("No common connectors available at " + response[i]["Station Name"] + "  " + response[i]["EV Connector Types"])
@@ -174,19 +177,19 @@ function updateSummary(response) {
       // Add to stations built by year
       if (openDate) {
         if (openYear <= 2009) {
-          connectorSummary.totalBefore2010 += 1
+          stationSummary.totalBefore2010 += 1;
         }
         if (openYear <= 2014 && openYear >= 2010) {
-          connectorSummary.total2010 += 1
+          stationSummary.total2010 += 1;
         }
         if (openYear <= 2019 && openYear >= 2015) {
-          connectorSummary.total2015 += 1
+          stationSummary.total2015 += 1;
         }
         if (openYear <= 2024 && openYear >= 2020) {
-          connectorSummary.total2020 += 1
+          stationSummary.total2020 += 1;
         }
         if (openYear === 2025) {
-          connectorSummary.total2025 += 1
+          stationSummary.total2025 += 1;
         }
       } else {
         console.log("Station not opened before 2026! " + openDate)
@@ -194,12 +197,12 @@ function updateSummary(response) {
     }
 
     // Add totals to html element
-    d3.select("#total-station").text(connectorSummary.totalStations);
-    d3.select("#total-2025").text(connectorSummary.total2025);
-    d3.select("#total-2020").text(connectorSummary.total2020);
-    d3.select("#total-2015").text(connectorSummary.total2015);
-    d3.select("#total-2010").text(connectorSummary.total2010);
-    d3.select("#total-before-2010").text(connectorSummary.totalBefore2010);
+    d3.select("#total-station").text(stationSummary.totalStations);
+    d3.select("#total-2025").text(stationSummary.total2025);
+    d3.select("#total-2020").text(stationSummary.total2020);
+    d3.select("#total-2015").text(stationSummary.total2015);
+    d3.select("#total-2010").text(stationSummary.total2010);
+    d3.select("#total-before-2010").text(stationSummary.totalBefore2010);
     d3.select("#total-tesla").text(connectorSummary.teslaCon);
     d3.select("#total-J1772").text(connectorSummary.j1772Con);
     d3.select("#total-CHADEMO").text(connectorSummary.chademoCon);
@@ -218,10 +221,10 @@ function pieChartSummary(connectorSummary) {
   }];
   let layout = {
     height: 400,
-    width: 500
+    width: 500,
+    title: "Charger Connection Type"
   };
   Plotly.newPlot('pie-chart', data, layout);
-  
 
 }
 
