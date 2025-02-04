@@ -84,10 +84,10 @@ function plotData(response) {
 
   let sortedData = response.filter((feature) => feature['Open Date']).sort((a, b) => a['Open Date'].substring(0, 4) - b['Open Date'].substring(0, 4));
 
-  dates = [];
-  sums = [];
-  activeDate = 'none';
-  activeSum = 0;
+  let dates = [];
+  let sums = [];
+  let activeDate = 'none';
+  let activeSum = 0;
 
   let featureLength = sortedData.length;
 
@@ -97,13 +97,13 @@ function plotData(response) {
 
     if (i === (featureLength - 1)) {
       dates.push(activeDate);
-      sums.push(activeSum);
+      sums.push([activeDate, activeSum]);
     } else if (i === 0) {
       activeDate = feature['Open Date'].substring(0, 4);
       activeSum = 1;
     } else if (feature['Open Date'].substring(0, 4) != activeDate) {
       dates.push(activeDate);
-      sums.push(activeSum);
+      sums.push([activeDate, activeSum]);
       activeDate = feature['Open Date'].substring(0, 4);
       activeSum = 1;
     } else {
@@ -125,6 +125,7 @@ function plotData(response) {
     },
 
     xAxis: {
+        type: 'datetime',
         accessibility: {
             rangeDescription: `Range: ${parseInt(dates[0])} to ${parseInt(dates[dates.length - 1])}`
         }
