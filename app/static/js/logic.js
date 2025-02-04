@@ -158,7 +158,22 @@ function updateSummary(response) {
 
 function pieChartSummary(connectorSummary) {
   console.log(connectorSummary);
+
+  let data = [{
+    values: Object.values(connectorSummary),
+    labels: Object.keys(connectorSummary),
+    type: 'pie'
+  }];
+  let layout = {
+    height: 400,
+    width: 500
+  };
+  Plotly.newPlot('pie-chart', data, layout);
+  
+
 }
+
+
 
 // Preload the map data with MN data
 createMap('MN');
