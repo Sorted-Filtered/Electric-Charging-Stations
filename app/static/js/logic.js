@@ -82,7 +82,7 @@ function createMap(state) {
 // Create the plots
 function plotData(response) {
 
-  let sortedData = response.sort((a, b) => b['Open Date'] - a['Open Date']);
+  let sortedData = response.filter((feature) => feature['Open Date']).sort((a, b) => a['Open Date'].substring(0, 4) - b['Open Date'].substring(0, 4));
 
   dates = [];
   sums = [];
@@ -95,39 +95,77 @@ function plotData(response) {
   for (let i = 0; i < featureLength; i++) {
     let feature = sortedData[i];
 
-    if (i == (featureLength - 1)) {
+    if (i === (featureLength - 1)) {
       dates.push(activeDate);
       sums.push(activeSum);
-    } else if (i == 0) {
-      activeDate = feature['Open Date'];
+    } else if (i === 0) {
+      activeDate = feature['Open Date'].substring(0, 4);
       activeSum = 1;
-    } else if (feature['Open Date'] != activeDate) {
+    } else if (feature['Open Date'].substring(0, 4) != activeDate) {
       dates.push(activeDate);
       sums.push(activeSum);
-      activeDate = feature['Open Date'];
+      activeDate = feature['Open Date'].substring(0, 4);
       activeSum = 1;
     } else {
       activeSum = activeSum + 1;
     }
   }
 
-  // Trace1
-  let trace1 = {
-    x: dates,
-    y: sums,
-    type: "bar"
-  };
+  Highcharts.chart('plot', {
 
-  // Data array
-  let data = [trace1];
+    title: {
+        text: 'Car Charger Openings',
+        align: 'left'
+    },
 
-  // Apply a title to the layout
-  let layout = {
-    title: "Electric Charger Openings by Date"
-  };
+    yAxis: {
+        title: {
+            text: 'Number of Chargers'
+        }
+    },
 
-  // Render the plot to the div tag with id "plot"
-  Plotly.newPlot("plot", data, layout);
+    xAxis: {
+        accessibility: {
+            rangeDescription: 'Range: 2012 to 2025'
+        }
+    },
+
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            label: {
+                connectorAllowed: false
+            },
+            pointStart: 2012
+        }
+    },
+
+    series: [{
+        name: 'Installations',
+        data: sums
+    }],
+
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom'
+                }
+            }
+        }]
+    }
+
+  });
 }
 
 
