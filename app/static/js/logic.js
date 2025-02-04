@@ -207,28 +207,105 @@ function updateSummary(response) {
     d3.select("#total-J1772").text(connectorSummary["J1772"]);
     d3.select("#total-CHADEMO").text(connectorSummary["CHADEMO"]);
     d3.select("#total-J1772COMBO").text(connectorSummary["J1772 Combo"]);
-    pieChartSummary(connectorSummary);
+    pieChartSummary(connectorSummary, stationSummary.totalStations);
 }
 
 // Function to create pie chart based on connector type totals
-function pieChartSummary(connectorSummary) {
-  console.log(connectorSummary);
+function pieChartSummary(connectorSummary, total) {
+  Highcharts.chart('pie-chart', {
+    chart: {
+        type: 'pie',
+        custom: {},
+        events: {
+            render() {
+                const chart = this,
+                    series = chart.series[0];
+                let customLabel = chart.options.chart.custom.label;
 
-  let data = [{
-    values: Object.values(connectorSummary),
-    labels: Object.keys(connectorSummary),
-    type: 'pie'
-  }];
-  let layout = {
-    height: 400,
-    width: 500,
-    title: "Charger Connection Type"
-  };
-  Plotly.newPlot('pie-chart', data, layout);
+                if (!customLabel) {
+                    customLabel = chart.options.chart.custom.label =
+                        chart.renderer.label(
+                            'Total<br/>' +
+                            `<strong>${total}</strong>`
+                        )
+                            .css({
+                                color: '#000',
+                                textAnchor: 'middle'
+                            })
+                            .add();
+                }
+
+                const x = series.center[0] + chart.plotLeft,
+                    y = series.center[1] + chart.plotTop -
+                    (customLabel.attr('height') / 2);
+
+                customLabel.attr({
+                    x,
+                    y
+                });
+                // Set font size based on chart diameter
+                customLabel.css({
+                    fontSize: `${series.center[2] / 12}px`
+                });
+            }
+        }
+    },
+    accessibility: {
+        point: {
+            valueSuffix: '%'
+        }
+    },
+    title: {
+        text: 'Connector Types'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.0f}%</b>'
+    },
+    legend: {
+        enabled: false
+    },
+    plotOptions: {
+        series: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            borderRadius: 8,
+            dataLabels: [{
+                enabled: true,
+                distance: 20,
+                format: '{point.name}'
+            }, {
+                enabled: true,
+                distance: -15,
+                format: '{point.percentage:.0f}%',
+                style: {
+                    fontSize: '0.9em'
+                }
+            }],
+            showInLegend: true
+        }
+    },
+    series: [{
+        colorByPoint: true,
+        innerSize: '75%',
+        data: [{
+            name: 'Tesla',
+            y: connectorSummary["Tesla"]
+        }, {
+            name: 'J1772',
+            y: connectorSummary["J1772"]
+        }, {
+            name: 'CHADEMO',
+            y: connectorSummary["CHADEMO"]
+        }, {
+            name: 'J1772 Combo',
+            y: connectorSummary["J1772 Combo"]
+        }]
+    }]
+  });
+
+  // console.log(connectorSummary);
 
 }
-
-
 
 // Preload the map data with MN data
 createMap('MN');
