@@ -35,8 +35,6 @@ function createMap(state) {
   // Call the API, <response> is the api json data
   d3.json(url).then(function(response) {
 
-    console.log(response);
-
     // Call updateSummary to generate state statistics
     updateSummary(response);
 
@@ -79,21 +77,18 @@ function createMap(state) {
   });
 }
 
-// Create the plots
-function plotData(response) {
-
-  let sortedData = response.filter((feature) => feature['Open Date']).sort((a, b) => a['Open Date'].substring(0, 4) - b['Open Date'].substring(0, 4));
-
+// Create plotting data for each connector type
+function calcSums(data) {
   let dates = [];
   let sums = [];
   let activeDate = 'none';
   let activeSum = 0;
 
-  let featureLength = sortedData.length;
+  let featureLength = data.length;
 
   // Loop through the features
   for (let i = 0; i < featureLength; i++) {
-    let feature = sortedData[i];
+    let feature = data[i];
 
     if (i === (featureLength - 1)) {
       dates.push(activeDate);
@@ -111,32 +106,62 @@ function plotData(response) {
     }
   }
 
-  Highcharts.chart('plot', {
+  return sums;
+}
 
+// Create the plots
+function plotData(response) {
+
+  // Only use data that has an open date and sort the data by date
+  let sortedData = response.filter((feature) => feature['Open Date']).sort((a, b) => a['Open Date'].substring(0, 4) - b['Open Date'].substring(0, 4));
+
+  let dates = [];
+  let activeDate = 'none';
+
+  let featureLength = sortedData.length;
+
+  // Loop through the features to create a date range
+  for (let i = 0; i < featureLength; i++) {
+    let feature = sortedData[i];
+
+    if (i === (featureLength - 1)) {
+      dates.push(activeDate);
+    } else if (i === 0) {
+      activeDate = feature['Open Date'].substring(0, 4);
+    } else if (feature['Open Date'].substring(0, 4) != activeDate) {
+      dates.push(activeDate);
+      activeDate = feature['Open Date'].substring(0, 4);
+    }
+  }
+
+  // Get the plot data for each type
+  let teslaData = calcSums(sortedData.filter((feature) => feature["EV Connector Types"] && feature["EV Connector Types"].includes("TESLA")));
+  let j1772Data = calcSums(sortedData.filter((feature) => feature["EV Connector Types"] && feature["EV Connector Types"].includes("J1772")));
+  let chademoData = calcSums(sortedData.filter((feature) => feature["EV Connector Types"] && feature["EV Connector Types"].includes("CHADEMO")));
+  let comboData = calcSums(sortedData.filter((feature) => feature["EV Connector Types"] && feature["EV Connector Types"].includes("J1772COMBO")));
+
+  // Plot the data
+  Highcharts.chart('plot', {
     title: {
         text: 'Car Charger Openings',
         align: 'left'
     },
-
     yAxis: {
         title: {
             text: 'Number of Chargers'
         }
     },
-
     xAxis: {
         type: 'datetime',
         accessibility: {
             rangeDescription: `Range: ${parseInt(dates[0])} to ${parseInt(dates[dates.length - 1])}`
         }
     },
-
     legend: {
         layout: 'vertical',
         align: 'right',
         verticalAlign: 'middle'
     },
-
     plotOptions: {
         series: {
             label: {
@@ -145,12 +170,19 @@ function plotData(response) {
             pointStart: parseInt(dates[0])
         }
     },
-
     series: [{
-        name: 'Installations',
-        data: sums
+        name: 'Tesla',
+        data: teslaData
+    }, {
+        name: 'J1772',
+        data: j1772Data
+    }, {
+        name: 'CHADEMO',
+        data: chademoData
+    }, {
+        name: 'J1772 Combo',
+        data: comboData
     }],
-
     responsive: {
         rules: [{
             condition: {
@@ -341,8 +373,6 @@ function pieChartSummary(connectorSummary, total) {
         }]
     }]
   });
-
-  // console.log(connectorSummary);
 
 }
 
