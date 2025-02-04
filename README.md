@@ -51,7 +51,7 @@ Real-Time Updates:
 
 -Dropdown menu allows users to select a state and update the map dynamically. 
 
-Javascript plugins used include d3, plotly, and leaflet. Python modules used include PyMongo, Flask, Flask-CORS, datetime, pprint, and the csv module. 
+Javascript plugins used include d3, highchart, and leaflet. Python modules used include PyMongo, Flask, Flask-CORS, datetime, pprint, and the csv module. 
 
 ## Contributors
 This project was done jointly by William Plaisance, Mohamoud Jama, Van Tran, Chandara In, and Lance Peterson. 
