@@ -126,7 +126,7 @@ function plotData(response) {
 
     xAxis: {
         accessibility: {
-            rangeDescription: 'Range: 2012 to 2025'
+            rangeDescription: `Range: ${parseInt(dates[0])} to ${parseInt(dates[dates.length - 1])}`
         }
     },
 
@@ -141,7 +141,7 @@ function plotData(response) {
             label: {
                 connectorAllowed: false
             },
-            pointStart: 2012
+            pointStart: parseInt(dates[0])
         }
     },
 
