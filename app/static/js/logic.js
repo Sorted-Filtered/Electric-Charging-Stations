@@ -142,10 +142,10 @@ function updateSummary(response) {
       totalBefore2010: 0
     }
     let connectorSummary = {
-      teslaCon: 0,
-      j1772Con: 0,
-      chademoCon: 0,
-      j1772comboCon: 0,
+      "Tesla": 0,
+      "J1772": 0,
+      "CHADEMO": 0,
+      "J1772 Combo": 0,
     }
 
     // Loop though state data to populate summary element
@@ -159,16 +159,16 @@ function updateSummary(response) {
 
       if (connectors) {
         if (connectors.includes("TESLA")) {
-          connectorSummary.teslaCon += 1;
+          connectorSummary["Tesla"] += 1;
         }
         if (connectors.includes("J1772")) {
-          connectorSummary.j1772Con += 1;
+          connectorSummary["J1772"] += 1;
         }
         if (connectors.includes("CHADEMO")) {
-          connectorSummary.chademoCon += 1;
+          connectorSummary["CHADEMO"] += 1;
         }
         if (connectors.includes("J1772COMBO")) {
-          connectorSummary.j1772comboCon += 1;
+          connectorSummary["J1772 Combo"] += 1;
         }
       } else {
         console.log("No common connectors available at " + response[i]["Station Name"] + "  " + response[i]["EV Connector Types"])
@@ -203,11 +203,11 @@ function updateSummary(response) {
     d3.select("#total-2015").text(stationSummary.total2015);
     d3.select("#total-2010").text(stationSummary.total2010);
     d3.select("#total-before-2010").text(stationSummary.totalBefore2010);
-    d3.select("#total-tesla").text(connectorSummary.teslaCon);
-    d3.select("#total-J1772").text(connectorSummary.j1772Con);
-    d3.select("#total-CHADEMO").text(connectorSummary.chademoCon);
-    d3.select("#total-J1772COMBO").text(connectorSummary.j1772comboCon);
-    pieChartSummary(connectorSummary)
+    d3.select("#total-tesla").text(connectorSummary["Tesla"]);
+    d3.select("#total-J1772").text(connectorSummary["J1772"]);
+    d3.select("#total-CHADEMO").text(connectorSummary["CHADEMO"]);
+    d3.select("#total-J1772COMBO").text(connectorSummary["J1772 Combo"]);
+    pieChartSummary(connectorSummary);
 }
 
 // Function to create pie chart based on connector type totals
